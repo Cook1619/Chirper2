@@ -1,16 +1,35 @@
 import React, { Component } from 'react';
+import Post from './Post/component/Post';
+import PostEditor from './PostEditor/component/PostEditor'
 import './App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+
+
+    this.state = {
+      posts: [],
+  
+    }
+  }
+  addPost = (newPostBody) => {
+    const newState = Object.assign({}, this.state);
+    newState.posts.push(newPostBody);
+    this.setState(newState);
+  }
+
   render() {
     return (
       <div>
-        <div className="panel panel-default post-editor">
-          <div className="panel-body">
-            <textarea className="form-control"/>
-            <button className="btn btn-success">Post</button>
-        </div>
-        </div>
+      {
+        this.state.posts.map((postBody, index) =>{
+        return (
+          <Post key={index} postBody={postBody}/>
+        )
+      })}
+    
+        <PostEditor addPost={this.addPost} />
       </div>
     );
   }
