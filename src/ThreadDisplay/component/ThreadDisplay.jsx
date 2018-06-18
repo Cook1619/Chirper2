@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Post from '../../Post/component/Post';
 import PostEditor from '../../PostEditor/component/PostEditor'
+import DefaultChirp from '../../DefaultChirp/component/DefaultChirp';
 
 class ThreadDisplay extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ class ThreadDisplay extends Component {
     render() {
         return (
             <div>
+            <DefaultChirp />
                 {
                     this.state.posts.map((postBody, index) => {
                         return (
