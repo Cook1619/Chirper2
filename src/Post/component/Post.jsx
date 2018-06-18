@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Post = (props) => (
-    <div className="panel panel-default post-body">
-        <div className="panel-body">
+    <div className="card post-body">
+        <div className="card-body">
             {props.postBody}
       </div>
     </div>

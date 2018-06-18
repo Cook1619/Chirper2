@@ -22,8 +22,8 @@ class PostEditor extends Component {
     }
     render() {
         return (
-            <div className="panel panel-default post-editor">
-                <div className="panel-body">
+            <div className="card post-editor">
+                <div className="card-body">
                     <textarea className="form-control post-editor-input" value={this.state.newPostBody} onChange={this.handlePostEditorInputChange} />
                     <button className="btn btn-success post-editor-button" onClick={this.createPost}>Post</button>
                 </div>
