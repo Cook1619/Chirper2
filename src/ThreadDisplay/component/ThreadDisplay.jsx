@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Post from '../../Post/component/Post';
 import PostEditor from '../../PostEditor/component/PostEditor'
-import DefaultChirp from '../../DefaultChirp/component/DefaultChirp';
 
 class ThreadDisplay extends Component {
     constructor(props) {
@@ -9,27 +8,38 @@ class ThreadDisplay extends Component {
 
 
         this.state = {
-            posts: [],
+            posts: [
+                {
+                    text: 'This is a new chirp'
+                },
+                {
+                    text: 'I like to chirp way more than you'
+                },
+                {
+                    text: 'Im the chirpiest chirp youve ever seen'
+                }
+            ],
 
         }
     }
     addChirp = (newPostBody) => {
-        const newState = Object.assign({}, this.state);
-        newState.posts.push(newPostBody);
-        this.setState(newState);
+
+        this.setState({ posts: this.state.posts.concat(newPostBody) });
     }
     render() {
         return (
             <div>
-            <DefaultChirp />
-                {
-                    this.state.posts.map((postBody, index) => {
-                        return (
-                            <Post key={index} postBody={postBody} />
-                        )
-                    })}
-
                 <PostEditor addChirp={this.addChirp} />
+                <div className="container">
+                    <div className="row">
+                        {
+                            this.state.posts.map((post, index) => {
+                                return (
+                                    <Post key={index} postBody={post.text} />
+                                )
+                            })}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -15,7 +15,7 @@ class PostEditor extends Component {
     }
 
     chirp = () => {
-        this.props.addChirp(this.state.newPostBody);
+        this.props.addChirp({text:this.state.newPostBody});
         this.setState({
             newPostBody: '',
         });
