@@ -14,8 +14,8 @@ class PostEditor extends Component {
         });
     }
 
-    createPost = () => {
-        this.props.addPost(this.state.newPostBody);
+    chirp = () => {
+        this.props.addChirp(this.state.newPostBody);
         this.setState({
             newPostBody: '',
         });
@@ -25,7 +25,7 @@ class PostEditor extends Component {
             <div className="card post-editor">
                 <div className="card-body">
                     <textarea className="form-control post-editor-input" value={this.state.newPostBody} onChange={this.handlePostEditorInputChange} />
-                    <button className="btn btn-success post-editor-button" onClick={this.createPost}>Post</button>
+                    <button className="btn btn-success post-editor-button" onClick={this.chirp}>Add Chirp!</button>
                 </div>
             </div>
         )

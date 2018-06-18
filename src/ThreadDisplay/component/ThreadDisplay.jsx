@@ -12,7 +12,7 @@ class ThreadDisplay extends Component {
 
         }
     }
-    addPost = (newPostBody) => {
+    addChirp = (newPostBody) => {
         const newState = Object.assign({}, this.state);
         newState.posts.push(newPostBody);
         this.setState(newState);
@@ -27,7 +27,7 @@ class ThreadDisplay extends Component {
                         )
                     })}
 
-                <PostEditor addPost={this.addPost} />
+                <PostEditor addChirp={this.addChirp} />
             </div>
         )
     }
